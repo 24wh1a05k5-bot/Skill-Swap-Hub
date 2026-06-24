@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap Hub — Exchange Skills. Learn Together.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ───────────────────────── NAVBAR ───────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <span class="logo-icon">⟁</span>
+        SkillSwap<span class="logo-accent">Hub</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#stats">Community</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+      <div class="nav-actions" id="navActions">
+        <button class="btn-ghost" onclick="openModal('loginModal')">Log In</button>
+        <button class="btn-primary" onclick="openModal('registerModal')">Get Started</button>
+      </div>
+      <!-- Shown when logged in -->
+      <div class="nav-user hidden" id="navUser">
+        <span class="nav-username" id="navUsername"></span>
+        <button class="btn-ghost" onclick="logout()">Log Out</button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ───────────────────────── HERO ───────────────────────── -->
+  <section class="hero" id="home">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Floating skill cards -->
+    <div class="floating-cards">
+      <div class="f-card f-card-1"><span>🎨</span> UI Design</div>
+      <div class="f-card f-card-2"><span>💻</span> Python</div>
+      <div class="f-card f-card-3"><span>🎸</span> Guitar</div>
+      <div class="f-card f-card-4"><span>📊</span> Data Science</div>
+      <div class="f-card f-card-5"><span>🌐</span> Web Dev</div>
+      <div class="f-card f-card-6"><span>🎬</span> Video Edit</div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🚀 Student-Powered Learning</div>
+      <h1 class="hero-title">
+        <span class="title-line">Exchange Skills.</span>
+        <span class="title-line gradient-text">Learn Together.</span>
+      </h1>
+      <p class="hero-sub">Connect with students who have what you want to learn — and want what you already know. No fees, just knowledge.</p>
+      <div class="hero-cta">
+        <button class="btn-hero-primary" onclick="openModal('registerModal')">Get Started Free</button>
+        <button class="btn-hero-ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features ↓</button>
+      </div>
+      <div class="hero-social-proof">
+        <div class="proof-avatars">
+          <div class="av" style="background:#7c3aed">S</div>
+          <div class="av" style="background:#2563eb">R</div>
+          <div class="av" style="background:#0891b2">A</div>
+          <div class="av" style="background:#059669">P</div>
+        </div>
+        <span>Join <strong>2,400+</strong> students already swapping skills</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FEATURES ───────────────────────── -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Why SkillSwap Hub</div>
+        <h2>Everything you need to grow</h2>
+        <p>A complete platform built for students, by students.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">⚡</div>
+          <h3>Instant Skill Exchange</h3>
+          <p>List what you know, find what you want. Our matching system connects you with the perfect learning partner in minutes.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">🔍</div>
+          <h3>Smart Discovery</h3>
+          <p>Search 500+ skills across tech, design, music, languages and more. Filter by category, level, and university.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">🤝</div>
+          <h3>Connect Directly</h3>
+          <p>Message potential skill partners, schedule sessions, and build real relationships with peers who share your drive.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">📈</div>
+          <h3>Track Progress</h3>
+          <p>See your skill journey, completed exchanges, and how many students you've helped — all in your personal dashboard.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">🛡️</div>
+          <h3>Verified Profiles</h3>
+          <p>Profiles are verified through university email. You always know you're connecting with real, enrolled students.</p>
+        </div>
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">🌍</div>
+          <h3>Global Community</h3>
+          <p>Students from 40+ universities across India. Expand your network beyond your campus, across cities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── HOW IT WORKS ───────────────────────── -->
+  <section class="section section-dark" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Simple Process</div>
+        <h2>Up and running in 4 steps</h2>
+        <p>From signup to your first skill session — takes less than 10 minutes.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" data-reveal>
+          <div class="step-num">01</div>
+          <div class="step-icon">👤</div>
+          <h3>Create Profile</h3>
+          <p>Sign up with your university email and tell us about yourself. Takes 2 minutes.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-num">02</div>
+          <div class="step-icon">🏷️</div>
+          <h3>Add Your Skills</h3>
+          <p>List skills you can teach and skills you want to learn. Be as specific as you like.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-num">03</div>
+          <div class="step-icon">🎯</div>
+          <h3>Find Matches</h3>
+          <p>Our algorithm finds students whose offered skills match what you want — and vice versa.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-num">04</div>
+          <div class="step-icon">🚀</div>
+          <h3>Start Learning</h3>
+          <p>Connect, schedule, and start your first skill exchange. Knowledge flows both ways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── STATS ───────────────────────── -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card" data-reveal>
+          <div class="stat-num" data-target="2400">0</div>
+          <div class="stat-label">Active Students</div>
+          <div class="stat-sub">across 40+ universities</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-num" data-target="580">0</div>
+          <div class="stat-label">Skills Listed</div>
+          <div class="stat-sub">in 9 categories</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-num" data-target="1200">0</div>
+          <div class="stat-label">Successful Matches</div>
+          <div class="stat-sub">and counting</div>
+        </div>
+        <div class="stat-card" data-reveal>
+          <div class="stat-num" data-target="98">0</div>
+          <div class="stat-label">% Satisfaction</div>
+          <div class="stat-sub">from user surveys</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── SKILLS EXPLORER ───────────────────────── -->
+  <section class="section section-dark" id="explore">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Live Skills</div>
+        <h2>Skills available right now</h2>
+        <p>Browse real skills listed by students on the platform.</p>
+      </div>
+      <div class="explore-controls">
+        <input class="search-input" id="skillSearch" type="text" placeholder="Search skills..." oninput="searchSkills()" />
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" onclick="filterSkills('all', this)">All</button>
+          <button class="filter-tab" onclick="filterSkills('Technology', this)">Tech</button>
+          <button class="filter-tab" onclick="filterSkills('Design', this)">Design</button>
+          <button class="filter-tab" onclick="filterSkills('Music', this)">Music</button>
+          <button class="filter-tab" onclick="filterSkills('Language', this)">Language</button>
+          <button class="filter-tab" onclick="filterSkills('Other', this)">Other</button>
+        </div>
+      </div>
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skills-loading">Loading skills...</div>
+      </div>
+      <div class="explore-footer">
+        <button class="btn-primary" onclick="openModal('registerModal')">Join to list your skill →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── TESTIMONIALS ───────────────────────── -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Student Reviews</div>
+        <h2>What students are saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card" data-reveal>
+          <div class="testi-stars">★★★★★</div>
+          <p>"I learned React in 3 weeks by teaching someone Python. Best deal I've ever made."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#7c3aed">P</div>
+            <div><strong>Priya K.</strong><br><small>CS Student, BITS Pilani</small></div>
+          </div>
+        </div>
+        <div class="testi-card" data-reveal>
+          <div class="testi-stars">★★★★★</div>
+          <p>"Found a guitar teacher AND learned Figma from the same person. The matching is genuinely smart."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#2563eb">R</div>
+            <div><strong>Rahul M.</strong><br><small>Design Student, NID</small></div>
+          </div>
+        </div>
+        <div class="testi-card" data-reveal>
+          <div class="testi-stars">★★★★★</div>
+          <p>"This platform helped me land an internship. I learned data science and got a portfolio project out of the exchange."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#0891b2">A</div>
+            <div><strong>Asha T.</strong><br><small>MBA Student, IIM-B</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── CTA BANNER ───────────────────────── -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to start learning?</h2>
+        <p>Join thousands of students already exchanging skills for free.</p>
+        <button class="btn-hero-primary" onclick="openModal('registerModal')">Create Free Account →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FOOTER ───────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-icon">⟁</span> SkillSwap<span class="logo-accent">Hub</span></div>
+          <p>A student-built platform for knowledge exchange. Free, forever.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">in</a>
+            <a href="#" class="social-icon">gh</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Platform</h4>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#explore">Browse Skills</a>
+        </div>
+        <div class="footer-links">
+          <h4>Community</h4>
+          <a href="#">Blog</a>
+          <a href="#">Events</a>
+          <a href="#">Universities</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:hello@skillswaphub.com">hello@skillswaphub.com</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SkillSwap Hub. Built with ♥ by students.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ MODALS ═══════════════════════ -->
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal" onclick="handleOverlayClick(event, 'loginModal')">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+      <div class="modal-header">
+        <div class="modal-logo">⟁</div>
+        <h2>Welcome back</h2>
+        <p>Log in to your SkillSwap Hub account</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@university.edu" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Your password" />
+        </div>
+        <div class="form-error hidden" id="loginError"></div>
+        <button class="btn-form-primary" id="loginBtn" onclick="login()">Log In</button>
+        <p class="form-switch">No account? <a onclick="switchModal('loginModal','registerModal')">Sign up free →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal-overlay" id="registerModal" onclick="handleOverlayClick(event, 'registerModal')">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+      <div class="modal-header">
+        <div class="modal-logo">⟁</div>
+        <h2>Join SkillSwap Hub</h2>
+        <p>Free forever. Start exchanging skills today.</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="you@university.edu" />
+        </div>
+        <div class="form-group">
+          <label>University</label>
+          <input type="text" id="regUniversity" placeholder="Your university name" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" placeholder="Min 6 characters" />
+        </div>
+        <div class="form-error hidden" id="regError"></div>
+        <button class="btn-form-primary" id="regBtn" onclick="register()">Create Account</button>
+        <p class="form-switch">Already a member? <a onclick="switchModal('registerModal','loginModal')">Log in →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Skill Modal -->
+  <div class="modal-overlay" id="addSkillModal" onclick="handleOverlayClick(event, 'addSkillModal')">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('addSkillModal')">✕</button>
+      <div class="modal-header">
+        <div class="modal-logo">🏷️</div>
+        <h2>Add a Skill</h2>
+        <p>Share what you know or what you want to learn</p>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Skill Title</label>
+          <input type="text" id="skillTitle" placeholder="e.g. React.js, Guitar, Figma..." />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category</label>
+            <select id="skillCategory">
+              <option value="">Select...</option>
+              <option>Technology</option>
+              <option>Design</option>
+              <option>Music</option>
+              <option>Language</option>
+              <option>Math</option>
+              <option>Science</option>
+              <option>Arts</option>
+              <option>Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select id="skillType">
+              <option value="offer">I can teach this</option>
+              <option value="request">I want to learn this</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Level</label>
+          <select id="skillLevel">
+            <option>Beginner</option>
+            <option selected>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description <small>(optional)</small></label>
+          <textarea id="skillDesc" placeholder="Tell learners what you'll cover..."></textarea>
+        </div>
+        <div class="form-error hidden" id="skillError"></div>
+        <button class="btn-form-primary" id="skillBtn" onclick="addSkill()">Post Skill</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast hidden" id="toast"></div>
+
+  <!-- Floating action button (shown when logged in) -->
+  <button class="fab hidden" id="fab" onclick="openModal('addSkillModal')" title="Add a skill">＋</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
